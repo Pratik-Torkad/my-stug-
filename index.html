@@ -485,7 +485,18 @@ main > .page-block.active-page { display:block; }
 .component-range-feature small{color:rgba(255,255,255,.62);font:11.5px/1.4 'IBM Plex Mono',monospace;}
 .component-range-feature:hover{background:var(--accent) !important;}
 @media(max-width:600px){.component-range-feature{display:flex !important;}.component-range-feature img{width:105px;height:82px;}.component-range-feature strong{font-size:14px;}}
-</style><style>.source-note{margin-top:12px;font:12px/1.5 "IBM Plex Mono",monospace;color:rgba(18,49,78,.62);}</style></head>
+</style><style>.source-note{margin-top:12px;font:12px/1.5 "IBM Plex Mono",monospace;color:rgba(18,49,78,.62);}
+@media (max-width:860px){
+  html,body{overflow-x:hidden;}
+  nav.wrap{padding-top:8px;padding-bottom:8px;gap:10px;}
+  .brand{flex:1 1 auto;min-width:0;}
+  .brand-logo{width:112px;height:64px;}
+  .brand-text{font-size:20px;line-height:1.05;white-space:normal;margin-left:8px;}
+  .nav-cta{flex:0 0 auto;}
+  .nav-cta .btn-solid{display:none;}
+  .menu-toggle{display:flex;}
+}
+</style></head>
 <body>
 <div class="topbar">
 <div class="wrap">
