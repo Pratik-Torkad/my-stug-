@@ -231,13 +231,14 @@ section{padding:80px 0;}
 
 /* ---------- Product page choice cards ---------- */
 .product-choice-wrap{padding:72px 0 24px;background:var(--paper);}
-.product-choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.product-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .product-choice{display:block;border:1px solid var(--grid-line-strong);background:var(--paper-card);padding:34px 30px;position:relative;transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;}
 .product-choice:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 10px 28px rgba(13,59,102,.08);}
 .product-choice .choice-no{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent-deep);letter-spacing:.08em;}
 .product-choice h2{font-size:28px;margin:12px 0 10px;}
 .product-choice p{color:var(--ink-soft);font-size:14.5px;max-width:48ch;margin:0 0 22px;}
 .product-choice .choice-link{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent-deep);}
+@media (max-width:900px){.product-choice-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:700px){.product-choice-grid{grid-template-columns:1fr;}.product-choice-wrap{padding-top:48px;}}
 
 /* ---------- Products grid (home) ---------- */
@@ -387,6 +388,7 @@ footer a:hover{color:#fff;}
 
 /* ================= PRODUCT DETAIL PAGE ================= */
 .detail-layout{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;}
+.detail-layout > *{min-width:0;}
 .side-nav{position:sticky;top:96px;border:1px solid var(--grid-line-strong);background:var(--paper-card);}
 .side-nav h5{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-faint);padding:16px 18px 10px;margin:0;}
 .side-nav ul{list-style:none;margin:0;padding:0 0 12px;}
@@ -466,6 +468,42 @@ main > .page-block.active-page { display:block; }
 .product-choice-wrap{padding-bottom:90px;}
 .product-choice{min-height:260px;display:flex;flex-direction:column;justify-content:flex-start;}
 .product-choice .choice-link{margin-top:auto;}
+.industrial-info{display:grid;grid-template-columns:1.35fr .85fr;gap:36px;align-items:start;}
+.industrial-info h2{font-size:22px;margin-bottom:14px;}
+.industrial-info p{color:var(--ink-soft);font-size:14.5px;margin:0 0 14px;}
+.industrial-source{border:1px solid var(--grid-line-strong);background:var(--paper-card);padding:24px;}
+.industrial-source h3{font-size:17px;margin-bottom:14px;}
+.industrial-source dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0 0 20px;font-size:13px;}
+.industrial-source dt{font:11px 'IBM Plex Mono',monospace;text-transform:uppercase;color:var(--ink-faint);}
+.industrial-source dd{margin:0;color:var(--ink);}
+.industrial-downloads{display:flex;flex-wrap:wrap;gap:10px;}
+.industrial-catalog-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:start;}
+.industrial-brand-list{display:grid;gap:2px;border:1px solid var(--grid-line-strong);background:var(--grid-line-strong);}
+.industrial-brand{width:100%;padding:14px 16px;border:0;background:var(--paper-card);color:var(--blueprint-deep);text-align:left;font:500 14px 'Oswald',sans-serif;text-transform:uppercase;cursor:pointer;}
+.industrial-brand:hover,.industrial-brand.active{background:var(--blueprint-deep);color:#fff;}
+.industrial-catalog-panel{min-width:0;}
+.industrial-catalog-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.industrial-catalog-head h3{font-size:22px;}
+.industrial-catalog-head span{font:11px 'IBM Plex Mono',monospace;color:var(--ink-faint);text-transform:uppercase;}
+.industrial-category-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.industrial-category{padding:9px 12px;border:1px solid var(--grid-line-strong);background:var(--paper-card);color:var(--blueprint-deep);font:11px 'IBM Plex Mono',monospace;text-align:left;cursor:pointer;}
+.industrial-category:hover,.industrial-category.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.industrial-search{display:flex;align-items:center;gap:8px;}
+.industrial-search input{width:230px;max-width:52vw;padding:9px 11px;border:1px solid var(--grid-line-strong);background:var(--paper-card);color:var(--ink);font:12px 'IBM Plex Mono',monospace;}
+.industrial-products-meta{margin:0 0 12px;color:var(--ink-faint);font:11px 'IBM Plex Mono',monospace;text-transform:uppercase;}
+.industrial-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;border:1px solid var(--grid-line-strong);background:var(--grid-line-strong);}
+.industrial-product-card{display:flex;flex-direction:column;min-height:205px;padding:20px;background:var(--paper-card);overflow:hidden;}
+.industrial-product-card:hover{background:#fff;}
+.industrial-product-photo{display:block;width:100%;height:150px;object-fit:contain;padding:12px;background:#fff;border:1px solid var(--grid-line-strong);margin:0 0 14px;}
+.industrial-product-card .item-ref{font:10px 'IBM Plex Mono',monospace;color:var(--ink-faint);}
+.industrial-product-card .item-category{margin:9px 0 7px;color:var(--accent-deep);font:10px 'IBM Plex Mono',monospace;text-transform:uppercase;}
+.industrial-product-card h4{font-size:16px;line-height:1.25;margin:0 0 12px;}
+.industrial-product-card .item-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;}
+.industrial-empty{grid-column:1/-1;padding:28px;background:var(--paper-card);color:var(--ink-soft);}
+@media (max-width:900px){.industrial-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:900px){.industrial-info{grid-template-columns:1fr;}}
+@media (max-width:760px){.industrial-catalog-layout{grid-template-columns:1fr;}.industrial-brand-list{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:560px){.industrial-product-grid{grid-template-columns:1fr;}.industrial-search{width:100%;}.industrial-search input{width:100%;max-width:none;}}
 .products .product-grid{grid-template-columns:repeat(3,1fr);}
 .products .product-card{min-height:250px;}
 @media (max-width:900px){.products .product-grid{grid-template-columns:repeat(2,1fr);}}
@@ -876,7 +914,7 @@ main > .page-block.active-page { display:block; }
 <div class="wrap">
 <div class="breadcrumb"><a href="#page-home">Home</a><span class="sep">/</span>Products</div>
 <h1>Products</h1>
-<p class="lead">Start with one of two simple paths: Components for individual parts, or Custom Build for complete fabricated systems.</p>
+<p class="lead">Choose from component families, custom fabrication or industrial instrumentation.</p>
 </div>
 </section>
 <section class="product-choice-wrap">
@@ -901,10 +939,85 @@ main > .page-block.active-page { display:block; }
 <p>Explore our custom engineering and fabrication options, with a separate card for each build type.</p>
 <span class="choice-link">Open Custom Build →</span>
 </a>
+<a class="product-choice" href="#page-industrial-instrumentation">
+<div class="choice-no">03 — INDUSTRIAL INSTRUMENTATION</div>
+<h2>Industrial Instrumentation</h2>
+<p>Browse 7 instrumentation brands, 40 product categories and 184 unique product records.</p>
+<span class="choice-link">Open Instrumentation Range →</span>
+</a>
 </div>
 </div>
 </section>
-</section><section class="page-block" id="page-component-range"><section class="page-hero"><div aria-hidden="true" class="grid-bg"></div><div class="wrap"><div class="breadcrumb"><a href="#page-products">Products</a><span class="sep">/</span>Component Range</div><h1>Component Range</h1><p class="lead">Select one of the 13 component families below. Each card opens its own product page — no long scrolling list.</p><p class="source-note">Product images are taken from the existing STUG product catalogue where available.</p></div></section><div class="page-back wrap"><a class="btn btn-sm" href="#page-products">← Back to Products</a></div><section class="products" id="page-products-components">
+</section>
+<section class="page-block" id="page-industrial-instrumentation">
+<section class="page-hero">
+<div aria-hidden="true" class="grid-bg"></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="#page-home">Home</a><span class="sep">/</span><a href="#page-products">Products</a><span class="sep">/</span>Industrial Instrumentation</div>
+<h1>Industrial Instrumentation</h1>
+<p class="lead">Browse seven instrumentation brands and their pressure, temperature, flow, and process-control product categories.</p>
+<div class="quick-specs">
+<div class="quick-spec"><div class="k">Brands</div><div class="v">07</div></div>
+<div class="quick-spec"><div class="k">Product Categories</div><div class="v">40</div></div>
+<div class="quick-spec"><div class="k">Unique Product Records</div><div class="v">184</div></div>
+</div>
+</div>
+</section>
+<div class="page-back wrap"><a class="btn btn-sm" href="#page-products">← Back to Products</a></div>
+<section class="products">
+<div class="wrap">
+<div class="section-head">
+<div><div class="section-tag">Complete Instrument Range</div><h2>Browse by Brand &amp; Product Category</h2></div>
+<p class="section-sub">Select a brand, then choose one of its product categories to view the listed products and details.</p>
+</div>
+<div class="industrial-catalog-layout">
+<nav class="industrial-brand-list" aria-label="Instrumentation brands">
+<button class="industrial-brand active" type="button" data-brand="WIKA">WIKA</button>
+<button class="industrial-brand" type="button" data-brand="WIKA PRESSURE">WIKA Pressure</button>
+<button class="industrial-brand" type="button" data-brand="WIKA TEMPERATURE">WIKA Temperature</button>
+<button class="industrial-brand" type="button" data-brand="SWITZER">Switzer</button>
+<button class="industrial-brand" type="button" data-brand="INDFOSS">Indfoss</button>
+<button class="industrial-brand" type="button" data-brand="MASIBUS">Masibus</button>
+<button class="industrial-brand" type="button" data-brand="NOVUS">Novus</button>
+</nav>
+<div class="industrial-catalog-panel">
+<div class="industrial-catalog-head"><h3 id="industrialBrandHeading">WIKA</h3><label class="industrial-search"><span class="sr-only">Search products</span><input id="industrialProductSearch" type="search" placeholder="Search products" autocomplete="off"/></label></div>
+<div class="industrial-category-list" id="industrialCategoryList" aria-label="Product categories"></div>
+<p class="industrial-products-meta" id="industrialProductsMeta" aria-live="polite"></p>
+<div class="industrial-product-grid" id="industrialProductGrid" aria-live="polite"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="about">
+<div class="wrap industrial-info">
+<div>
+<div class="section-tag">Integrated Process Automation</div>
+<h2>Measurement through process control</h2>
+<p>The source listing describes Siemens' process-industry offering as drawing on decades of experience in measurement, analysis and control. It highlights Siemens' leadership in process gas chromatography, level measurement and positioners, with solutions ranging from customized products to complete systems.</p>
+<p>The listed technologies are presented as ways to make processes faster, more flexible, efficient and cost-effective.</p>
+<p>Its Totally Integrated Automation platform connects data management, communications, configuration and programming, supporting process applications that need coordinated instrumentation and control.</p>
+<p class="source-note">Product information and downloadable brochures are listed by <a href="https://saelectro.com/Product_Details/product/41" target="_blank" rel="noopener noreferrer">SA Electro</a>.</p>
+</div>
+<aside class="industrial-source">
+<h3>Source Listing Details</h3>
+<dl>
+<dt>Type</dt><dd>Siemens</dd>
+<dt>Phone</dt><dd><a href="tel:+919970000748">9970 000 748</a></dd>
+<dt>Email</dt><dd><a href="mailto:sales@saelectro.com">sales@saelectro.com</a></dd>
+<dt>Website</dt><dd><a href="https://saelectro.com/" target="_blank" rel="noopener noreferrer">www.saelectro.com</a></dd>
+</dl>
+<h3>Product Brochures</h3>
+<div class="industrial-downloads">
+<a class="btn btn-sm" href="https://saelectro.com//images/Brouchare.pdf" target="_blank" rel="noopener noreferrer">Brochure PDF ↗</a>
+<a class="btn btn-sm" href="https://saelectro.com//images/A2G-40.pdf" target="_blank" rel="noopener noreferrer">A2G-40 PDF ↗</a>
+</div>
+</aside>
+</div>
+</section>
+<section class="cta-strip"><div class="wrap"><h3>Need help specifying an instrumentation solution?</h3><a class="btn btn-solid" href="#page-contact">Contact STUG</a></div></section>
+</section>
+<section class="page-block" id="page-component-range"><section class="page-hero"><div aria-hidden="true" class="grid-bg"></div><div class="wrap"><div class="breadcrumb"><a href="#page-products">Products</a><span class="sep">/</span>Component Range</div><h1>Component Range</h1><p class="lead">Select one of the 13 component families below. Each card opens its own product page — no long scrolling list.</p><p class="source-note">Product images are taken from the existing STUG product catalogue where available.</p></div></section><div class="page-back wrap"><a class="btn btn-sm" href="#page-products">← Back to Products</a></div><section class="products" id="page-products-components">
 <div class="wrap">
 <div class="section-head">
 <div>
@@ -2786,6 +2899,8 @@ main > .page-block.active-page { display:block; }
 </div>
 </div>
 </footer>
+<script src="./assets/industrial-products.js"></script>
+<script src="./assets/industrial-product-images.js"></script>
 <script>
 // Card-based navigation: each hash is a separate page/view. No direct scrolling.
 (function(){
@@ -2811,6 +2926,138 @@ main > .page-block.active-page { display:block; }
   });
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
+})();
+
+// Industrial instrumentation catalog: local product cards link to individual source records.
+(function(){
+  const categoryData = {
+    'WIKA': [
+      ['FLOW', 'FLOW'], ['LEVEL', 'LEVEL'], ['AIR VELOCITY', 'AIR_VELOCITY'], ['DIAPHRAGM SEAL', 'DIAPHRAGM_SEAL']
+    ],
+    'WIKA PRESSURE': [
+      ['PRESSURE TRANSMITTER', 'PRESSURE_TRANSMITTER'], ['PRESSURE GAUGE', 'PRESSURE_GAUGE'],
+      ['DIGITAL PRESSURE GAUGE', 'DIGITAL_PRESSURE_GAUGE'], ['PRESSURE SWITCH', 'PRESSURE_SWITCH'],
+      ['PG & DPG WITH SWITCH', 'PG_&_DPG__WITH_SWITCH'], ['AIR VELOCITY', 'AIR_VELOCITY'],
+      ['DIFF PRESSURE GAUGE', 'DIFF_PRESSURE_GAUGE_']
+    ],
+    'WIKA TEMPERATURE': [
+      ['TEMP GAUGE', 'TEMP_GAUGE'], ['TEMP TRANSMITTER', 'TEMP_TRANSMITTER'],
+      ['RTD THERMOCOUPLE', 'RTD_THERMOCOUPLE'], ['TEMP SWITCH', 'TEMP_SWITCH'], ['TG WITH SWITCH', 'TG_WITH_SWITCH']
+    ],
+    'SWITZER': [
+      ['DP GAUGE WITH SWITCH', 'DP_GAUGE_WITH_SWITCH'], ['DP SWITCH', 'DP_SWITCH'], ['FLOW', 'FLOW'],
+      ['PRESSURE SWITCH', 'PRESSURE_SWITCH'], ['SWITZER', 'SWITZER'], ['TEMP. SWITCH', 'TEMP._SWITCH']
+    ],
+    'INDFOSS': [['PRESSURE SWITCH', 'PRESSURE_SWITCH'], ['TEMP SWITCH', 'TEMP_SWITCH']],
+    'MASIBUS': [
+      ['BAR GRAPH INDICATOR', 'BAR_GRAPH_INDICATOR'], ['CALIBRATOR', 'CALIBRATOR'], ['CONTROLLER', 'CONTROLLER'],
+      ['DATALOGGER', 'DATALOGGER'], ['ENERGY METER', 'ENERGY_METER'], ['HUMIDITY TEMP TRANSMITTER', 'HUMIDITY_TEMP_TRANSMITTER'],
+      ['INDICATOR', 'INDICATOR'], ['ISOLATOR', 'ISOLATOR'], ['LOOP POWER INDICATOR', 'LOOP_POWER_LINDICATOR'],
+      ['RPM SENSOR', 'RPM_SENSOR'], ['SCANNER', 'SCANNER'], ['TEMPERATURE TRANSMITTER', 'TEMPRATURE_TRANSMITTER'],
+      ['TOTALISER', 'TOTALISER'], ['VIBRATION TRANSMITTER', 'VIBRATION_TRANSMITTER']
+    ],
+    'NOVUS': [['Indicator', 'Indicator'], ['counter', 'counter']]
+  };
+  const brandButtons = Array.from(document.querySelectorAll('.industrial-brand'));
+  const categoryList = document.getElementById('industrialCategoryList');
+  const brandHeading = document.getElementById('industrialBrandHeading');
+  const productGrid = document.getElementById('industrialProductGrid');
+  const productMeta = document.getElementById('industrialProductsMeta');
+  const productSearch = document.getElementById('industrialProductSearch');
+  const productsByCategory = window.industrialProductData || {};
+  let activeCategory = null;
+  let activeBrand = null;
+  if(!brandButtons.length || !categoryList || !brandHeading || !productGrid || !productMeta) return;
+
+  function renderProducts(){
+    if(!activeCategory) return;
+    const query = (productSearch?.value || '').trim().toLowerCase();
+    const entries = (productsByCategory[activeCategory.route] || []).filter(([id, name]) => {
+      return !query || `${id} ${name} ${activeCategory.label} ${activeBrand}`.toLowerCase().includes(query);
+    });
+    productMeta.textContent = `${entries.length} products · ${activeCategory.label}`;
+    productGrid.replaceChildren();
+    if(!entries.length){
+      const empty = document.createElement('div');
+      empty.className = 'industrial-empty';
+      empty.textContent = query ? 'No matching products in this category.' : 'No product entries are listed for this supplier category. Contact STUG for availability.';
+      productGrid.append(empty);
+      return;
+    }
+    entries.forEach(([id, name]) => {
+      const card = document.createElement('article');
+      card.className = 'industrial-product-card';
+      const imageFile = window.industrialProductImageData?.[id];
+      if(imageFile){
+        const photo = document.createElement('img');
+        photo.className = 'industrial-product-photo';
+        photo.src = 'https://saelectro.com//images/sales/' + imageFile;
+        photo.alt = name;
+        photo.loading = 'lazy';
+        photo.decoding = 'async';
+        photo.onerror = () => photo.remove();
+        card.append(photo);
+      }
+      const ref = document.createElement('span');
+      ref.className = 'item-ref';
+      ref.textContent = `CATALOG REF ${id}`;
+      const category = document.createElement('div');
+      category.className = 'item-category';
+      category.textContent = activeCategory.label;
+      const heading = document.createElement('h4');
+      heading.textContent = name;
+      const actions = document.createElement('div');
+      actions.className = 'item-actions';
+      const details = document.createElement('a');
+      details.className = 'btn btn-sm';
+      details.href = `https://saelectro.com//Product_Details/product/${id}`;
+      details.target = '_blank';
+      details.rel = 'noopener noreferrer';
+      details.textContent = 'Technical details ↗';
+      const enquiry = document.createElement('a');
+      enquiry.className = 'btn btn-sm btn-solid';
+      enquiry.href = '#page-contact';
+      enquiry.textContent = 'Enquire';
+      actions.append(details, enquiry);
+      card.append(ref, category, heading, actions);
+      productGrid.append(card);
+    });
+  }
+
+  function selectCategory(button, label, route){
+    categoryList.querySelectorAll('.industrial-category').forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    activeCategory = { label, route };
+    renderProducts();
+  }
+
+  function selectBrand(brand){
+    activeBrand = brand;
+    brandHeading.textContent = brand;
+    brandButtons.forEach(button => {
+      const active = button.dataset.brand === brand;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    categoryList.replaceChildren();
+    categoryData[brand].forEach(([label, route], index) => {
+      const button = document.createElement('button');
+      button.className = 'industrial-category';
+      button.type = 'button';
+      button.textContent = label;
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', () => selectCategory(button, label, route));
+      categoryList.append(button);
+      if(index === 0) selectCategory(button, label, route);
+    });
+  }
+
+  brandButtons.forEach(button => button.addEventListener('click', () => selectBrand(button.dataset.brand)));
+  productSearch?.addEventListener('input', renderProducts);
+  selectBrand('WIKA');
 })();
 
 
