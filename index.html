@@ -376,6 +376,45 @@ footer a:hover{color:#fff;}
 .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;}
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr;}}
 
+/* ---------- Customer reviews ---------- */
+.reviews-page{background:var(--paper-card);}
+.reviews-layout{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);gap:42px;align-items:start;}
+.reviews-form-panel{background:var(--blueprint-deep);color:#fff;padding:30px;border-top:4px solid var(--accent);}
+.reviews-form-panel h3{color:#fff;font-size:21px;margin-bottom:6px;}
+.reviews-form-panel > p{margin:0 0 22px;color:rgba(255,255,255,.62);font-size:13.5px;}
+.reviews-form .form-row label{color:rgba(255,255,255,.72);}
+.reviews-form input,.reviews-form textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.24);border-radius:0;background:rgba(255,255,255,.06);color:#fff;font:14px 'Inter',sans-serif;}
+.reviews-form input::placeholder,.reviews-form textarea::placeholder{color:rgba(255,255,255,.42);}
+.reviews-form input:focus,.reviews-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.reviews-form textarea{min-height:120px;resize:vertical;}
+.rating-field{border:0;padding:0;margin:0 0 18px;}
+.rating-field legend{font:11px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.72);margin-bottom:8px;}
+.rating-options{display:flex;gap:5px;}
+.rating-options label{position:relative;cursor:pointer;color:rgba(255,255,255,.32);font-size:32px;line-height:1;}
+.rating-options input{position:absolute;width:1px;height:1px;opacity:0;}
+.rating-options:has(input[value="1"]:checked) label:nth-child(-n+1),.rating-options:has(input[value="2"]:checked) label:nth-child(-n+2),.rating-options:has(input[value="3"]:checked) label:nth-child(-n+3),.rating-options:has(input[value="4"]:checked) label:nth-child(-n+4),.rating-options:has(input[value="5"]:checked) label:nth-child(-n+5){color:var(--accent);}
+.rating-options label:has(input:focus-visible){outline:2px solid #fff;outline-offset:3px;}
+.reviews-status{min-height:22px;margin:12px 0 0;color:rgba(255,255,255,.78);font-size:13px;}
+.reviews-summary{display:flex;align-items:center;gap:20px;padding:0 0 24px;border-bottom:1px solid var(--grid-line-strong);margin-bottom:20px;}
+.reviews-average{font:600 48px/.95 'Oswald',sans-serif;color:var(--blueprint-deep);}
+.reviews-summary-stars,.review-stars{color:var(--accent-deep);letter-spacing:0;font-size:18px;}
+.reviews-summary-copy{color:var(--ink-soft);font-size:13px;}
+.reviews-strip-controls{display:flex;justify-content:flex-end;gap:8px;margin:-4px 0 12px;}
+.reviews-strip-controls .btn{min-width:40px;justify-content:center;padding:6px 12px;font-size:18px;}
+.reviews-list{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px, min(360px, 82%));gap:12px;overflow-x:auto;overscroll-behavior-inline:contain;padding:2px 2px 16px;scroll-snap-type:x mandatory;scrollbar-color:var(--accent) var(--grid-line-strong);scrollbar-width:thin;}
+.reviews-list::-webkit-scrollbar{height:8px;}
+.reviews-list::-webkit-scrollbar-track{background:var(--grid-line-strong);}
+.reviews-list::-webkit-scrollbar-thumb{background:var(--accent);}
+.review-entry{min-height:190px;padding:20px;background:#fff;border:1px solid var(--grid-line-strong);scroll-snap-align:start;}
+.review-entry-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;}
+.review-entry h3{font:600 16px 'Inter',sans-serif;text-transform:none;letter-spacing:0;color:var(--blueprint-deep);}
+.review-entry time{font:10px 'IBM Plex Mono',monospace;color:var(--ink-faint);white-space:nowrap;}
+.review-meta{margin:3px 0 8px;color:var(--ink-faint);font-size:12px;}
+.review-entry p{margin:0;color:var(--ink-soft);font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;}
+.reviews-empty{grid-column:1/-1;padding:24px 0;color:var(--ink-soft);font-size:14px;}
+@media(max-width:800px){.reviews-layout{grid-template-columns:1fr;gap:34px;}}
+@media(max-width:520px){.reviews-form-panel{padding:24px 20px;}.reviews-summary{gap:14px;}.reviews-average{font-size:42px;}.reviews-list{grid-auto-columns:minmax(260px,88%);}.review-entry-head{display:block}.review-entry time{display:block;margin-top:5px;}}
+
 /* ---------- Mobile nav ---------- */
 .mobile-panel{display:none;}
 @media (max-width:860px){
@@ -600,6 +639,7 @@ main > .page-block.active-page { display:block; }
 <div class="nav-links">
 <a href="#page-home">Home</a>
 <a href="#page-about">About</a>
+<a href="#page-reviews">Reviews</a>
 <a href="#page-products">Products</a>
 <a href="#page-contact">Contact</a>
 </div>
@@ -612,6 +652,7 @@ main > .page-block.active-page { display:block; }
 <div class="mobile-panel" id="mobilePanel">
 <a href="#page-home">Home</a>
 <a href="#page-about">About</a>
+<a href="#page-reviews">Reviews</a>
 <a href="#page-products">Products</a>
 <a href="#page-contact">Contact</a>
 </div>
@@ -861,6 +902,59 @@ main > .page-block.active-page { display:block; }
 <div class="wrap">
 <h3>Not sure which part fits your machine? Send us the drawing.</h3>
 <a class="btn btn-solid" href="#page-contact">Get an Engineering Response</a>
+</div>
+</section>
+</section>
+<div aria-hidden="true" class="page-divider"></div>
+<section class="page-block" id="page-reviews">
+<section class="page-hero">
+<div aria-hidden="true" class="grid-bg"></div>
+<div class="wrap">
+<div class="breadcrumb"><a href="#page-home">Home</a><span class="sep">/</span>Reviews</div>
+<h1>Customer Reviews</h1>
+<p class="lead">Share your experience with STUG Innovative Solutions and help other teams choose with confidence.</p>
+</div>
+</section>
+<section class="reviews-page">
+<div class="wrap">
+<div class="section-head">
+<div><div class="section-tag">Customer feedback</div><h2>Ratings from our customers</h2></div>
+<p class="section-sub">Your rating updates the score and review list as soon as you submit.</p>
+</div>
+<div class="reviews-layout">
+<div class="reviews-form-panel">
+<h3>Leave a review</h3>
+<p>Tell us how we did. Your name and rating will appear with your review.</p>
+<form class="reviews-form" id="reviewForm">
+<div class="form-row"><label for="reviewName">Your name</label><input id="reviewName" name="name" autocomplete="name" maxlength="80" placeholder="Name" required/></div>
+<div class="form-row"><label for="reviewCompany">Company <span>(optional)</span></label><input id="reviewCompany" name="company" autocomplete="organization" maxlength="100" placeholder="Company name"/></div>
+<fieldset class="rating-field">
+<legend>Your rating</legend>
+<div class="rating-options" role="radiogroup" aria-label="Your rating">
+<label aria-label="1 star"><input type="radio" name="rating" value="1" required/><span aria-hidden="true">★</span></label>
+<label aria-label="2 stars"><input type="radio" name="rating" value="2"/><span aria-hidden="true">★</span></label>
+<label aria-label="3 stars"><input type="radio" name="rating" value="3"/><span aria-hidden="true">★</span></label>
+<label aria-label="4 stars"><input type="radio" name="rating" value="4"/><span aria-hidden="true">★</span></label>
+<label aria-label="5 stars"><input type="radio" name="rating" value="5"/><span aria-hidden="true">★</span></label>
+</div>
+</fieldset>
+<div class="form-row"><label for="reviewMessage">Your review</label><textarea id="reviewMessage" name="message" maxlength="1200" placeholder="What was your experience working with us?" required></textarea></div>
+<button class="btn btn-solid" type="submit">Post review</button>
+<p class="reviews-status" id="reviewFormStatus" role="status" aria-live="polite"></p>
+</form>
+</div>
+<div class="reviews-results">
+<div class="reviews-summary" aria-live="polite">
+<strong class="reviews-average" id="reviewsAverage">0.0</strong>
+<div><div class="reviews-summary-stars" id="reviewsAverageStars" aria-label="No ratings yet">☆☆☆☆☆</div><div class="reviews-summary-copy" id="reviewsCount">No reviews yet</div></div>
+</div>
+<div class="reviews-strip-controls" role="group" aria-label="Scroll customer reviews">
+<button class="btn btn-sm" type="button" data-review-scroll="-1" aria-label="Scroll to previous reviews" title="Previous reviews">&#8592;</button>
+<button class="btn btn-sm" type="button" data-review-scroll="1" aria-label="Scroll to more reviews" title="More reviews">&#8594;</button>
+</div>
+<div class="reviews-list" id="reviewsList" aria-live="polite"></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -2868,6 +2962,7 @@ main > .page-block.active-page { display:block; }
 <h5>Navigate</h5>
 <ul>
 <li><a href="#page-about">About</a></li>
+<li><a href="#page-reviews">Reviews</a></li>
 <li><a href="#page-products">Products</a></li>
 <li><a href="#page-contact">Contact</a></li>
 </ul>
@@ -2881,15 +2976,6 @@ main > .page-block.active-page { display:block; }
 <li><a href="https://www.indiamart.com/stuginnovativesolutions/profile.html?srsltid=AU7gw4WmURxXAg1HCELJHEMRxWsJcskVIIvXe6_i9i7xn2EGaNgFMcdo" rel="noopener" target="_blank">IndiaMART</a></li>
 <li><a href="https://www.instagram.com/stug_innovative_solutions?stkn=dGw4ZTJ2enltanl1" rel="noopener" target="_blank">Instagram</a></li>
 <li>Narhe, Pune – 411041</li>
-<li>
-<a aria-label="STUG Innovative Solutions on Instagram" class="instagram-link" href="https://www.instagram.com/stug_innovative_solutions?stkn=dGw4ZTJ2enltanl1" rel="noopener" target="_blank" title="Instagram">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<rect height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"></rect>
-<circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
-<circle cx="17.5" cy="6.7" fill="currentColor" r="1.2"></circle>
-</svg>
-</a>
-</li>
 </ul>
 </div>
 </div>
@@ -2926,6 +3012,157 @@ main > .page-block.active-page { display:block; }
   });
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
+})();
+
+// Customer reviews stay in this browser until a shared review service is connected.
+(function(){
+  const form=document.getElementById('reviewForm');
+  const list=document.getElementById('reviewsList');
+  const average=document.getElementById('reviewsAverage');
+  const averageStars=document.getElementById('reviewsAverageStars');
+  const count=document.getElementById('reviewsCount');
+  const status=document.getElementById('reviewFormStatus');
+  if(!form || !list || !average || !averageStars || !count || !status) return;
+
+  const storageKey='stug-customer-reviews-v1';
+  const featuredReviews=[
+    {name:'Pratik Torkad',rating:5,message:'Had a good experience with STUG Innovative Solutions. The team was professional, responsive, and helpful with our requirements. Overall, good service.'},
+    {name:'Sakshi Nehe',rating:5,message:'Good experience with STUG Innovative Solutions. The team was cooperative and provided proper assistance throughout the process. Recommended for automation solutions.'},
+    {name:'Sadiya Shaikh',rating:5,message:'Professional team and good communication. They understood our requirements and provided helpful guidance. Overall, a positive experience.'},
+    {name:'Yash Talpade',rating:5,message:'Good service and support from the STUG Innovative Solutions team. They were responsive and handled our requirements professionally.'},
+    {name:'Abhishek Varma',rating:5,message:'Had a smooth experience with STUG Innovative Solutions. Good communication, helpful team, and a good range of industrial automation solutions.'}
+  ];
+  const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let pointerPaused=false;
+  let focusPaused=false;
+  let autoplayTimer=null;
+  function loadReviews(){
+    try{
+      const saved=JSON.parse(localStorage.getItem(storageKey) || '[]');
+      const submitted=Array.isArray(saved) ? saved.filter(review => review && typeof review.name==='string' && typeof review.message==='string' && Number.isInteger(Number(review.rating)) && Number(review.rating)>=1 && Number(review.rating)<=5) : [];
+      return [...featuredReviews,...submitted];
+    }catch(error){
+      return [...featuredReviews];
+    }
+  }
+  let reviews=loadReviews();
+
+  function updateAutoplay(){
+    window.clearInterval(autoplayTimer);
+    autoplayTimer=null;
+    if(prefersReducedMotion.matches || pointerPaused || focusPaused || list.scrollWidth<=list.clientWidth+2) return;
+    autoplayTimer=window.setInterval(()=>{
+      const maxScroll=list.scrollWidth-list.clientWidth;
+      const firstCard=list.firstElementChild;
+      const gap=parseFloat(getComputedStyle(list).columnGap) || 12;
+      const step=(firstCard?.getBoundingClientRect().width || list.clientWidth*.85)+gap;
+      const target=list.scrollLeft>=maxScroll-8 ? 0 : Math.min(list.scrollLeft+step,maxScroll);
+      list.scrollTo({left:target,behavior:'smooth'});
+    },4800);
+  }
+
+  function renderReviews(){
+    const total=reviews.reduce((sum,review)=>sum+Number(review.rating),0);
+    const score=reviews.length ? total/reviews.length : 0;
+    average.textContent=score.toFixed(1);
+    averageStars.textContent='★'.repeat(Math.round(score))+'☆'.repeat(5-Math.round(score));
+    averageStars.setAttribute('aria-label',reviews.length ? `${score.toFixed(1)} out of 5 stars` : 'No ratings yet');
+    count.textContent=`${reviews.length} ${reviews.length===1 ? 'review' : 'reviews'}`;
+    list.replaceChildren();
+    if(!reviews.length){
+      const empty=document.createElement('p');
+      empty.className='reviews-empty';
+      empty.textContent='No customer reviews yet.';
+      list.append(empty);
+      updateAutoplay();
+      return;
+    }
+    const submittedReviews=reviews.slice(featuredReviews.length);
+    [...submittedReviews].reverse().concat(featuredReviews).forEach(review=>{
+      const entry=document.createElement('article');
+      entry.className='review-entry';
+      const head=document.createElement('div');
+      head.className='review-entry-head';
+      const name=document.createElement('h3');
+      name.textContent=review.name;
+      head.append(name);
+      entry.append(head);
+      const stars=document.createElement('div');
+      stars.className='review-stars';
+      stars.textContent='★'.repeat(Number(review.rating))+'☆'.repeat(5-Number(review.rating));
+      stars.setAttribute('aria-label',`${review.rating} out of 5 stars`);
+      const message=document.createElement('p');
+      message.textContent=review.message;
+      if(review.company){
+        const company=document.createElement('div');
+        company.className='review-meta';
+        company.textContent=review.company;
+        entry.append(company);
+      }
+      if(review.createdAt){
+        const created=new Date(review.createdAt);
+        if(!Number.isNaN(created.getTime())){
+          const date=document.createElement('time');
+          date.dateTime=created.toISOString();
+          date.textContent=new Intl.DateTimeFormat(undefined,{dateStyle:'medium'}).format(created);
+          head.append(date);
+        }
+      }
+      entry.append(stars,message);
+      list.append(entry);
+    });
+    list.scrollLeft=0;
+    updateAutoplay();
+  }
+
+  list.addEventListener('mouseenter',()=>{pointerPaused=true;updateAutoplay();});
+  list.addEventListener('mouseleave',()=>{pointerPaused=false;updateAutoplay();});
+  list.addEventListener('focusin',()=>{focusPaused=true;updateAutoplay();});
+  list.addEventListener('focusout',event=>{
+    if(!list.contains(event.relatedTarget)){focusPaused=false;updateAutoplay();}
+  });
+  prefersReducedMotion.addEventListener('change',updateAutoplay);
+
+  document.querySelectorAll('[data-review-scroll]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const distance=Math.max(list.clientWidth*.85,280);
+      list.scrollBy({left:Number(button.dataset.reviewScroll)*distance,behavior:'smooth'});
+    });
+  });
+
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    const values=new FormData(form);
+    const review={
+      name:String(values.get('name') || '').trim(),
+      company:String(values.get('company') || '').trim(),
+      rating:Number(values.get('rating')),
+      message:String(values.get('message') || '').trim(),
+      createdAt:new Date().toISOString()
+    };
+    if(!review.name || !review.message || review.rating<1 || review.rating>5){
+      status.textContent='Add your name, choose a star rating, and write a review.';
+      return;
+    }
+    reviews.push(review);
+    let saved=true;
+    try{
+      localStorage.setItem(storageKey,JSON.stringify(reviews.slice(featuredReviews.length)));
+    }catch(error){
+      saved=false;
+    }
+    renderReviews();
+    form.reset();
+    status.textContent=saved ? 'Thank you. Your review is now reflected above.' : 'Your review is shown for this visit, but browser storage is unavailable.';
+  });
+
+  window.addEventListener('storage',event=>{
+    if(event.key===storageKey){
+      reviews=loadReviews();
+      renderReviews();
+    }
+  });
+  renderReviews();
 })();
 
 // Industrial instrumentation catalog: local product cards link to individual source records.
